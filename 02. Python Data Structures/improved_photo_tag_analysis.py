@@ -22,4 +22,25 @@ l = [
 photo_groups = {}
 
 for i in l:
-	for 
+	for key, value in i.items():
+		if key == "name":
+			photo_name_outer = value
+			#print(key)
+			#print(photo_name_outer)
+		if key == 'tags':
+			for tag_1 in value:
+				tag_outer = tag_1
+				print(tag_outer)
+				for i_2 in l:
+					for key_2, value_2 in i_2.items():
+						if key_2 == "name":
+							photo_name_inner = value_2
+							#print(key)
+							#print(photo_name_outer)
+						if key_2 == 'tags':
+							for tag_2 in value_2:
+								if tag_1 == tag_2 and photo_name_inner != photo_name_outer:
+									photo_groups[tag_1] = {photo_name_inner, photo_name_outer}
+				
+
+print(photo_groups)
